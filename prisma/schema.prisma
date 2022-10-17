@@ -12,7 +12,7 @@ model User {
   name      String?
   email     String   @unique
   pwdHash   String
-  active    Boolean
-  photoUri  String
+  active    Boolean @default(true)
+  photoUrl  String
   createdAt DateTime @default(now())
 }
