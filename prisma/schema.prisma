@@ -12,6 +12,7 @@ model User {
   name      String?
   email     String   @unique
   pwdHash   String
-  pwdSalt   String
+  active    Boolean
+  photoUri  String
   createdAt DateTime @default(now())
 }
