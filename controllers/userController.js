@@ -34,6 +34,12 @@ exports.sign_in = async (req, res) => {
     res.status(401).json({ message: "Authentication failed: Wrong username or Password" })
 
 }
-exports.login_required = (req, res) => {
+exports.login_required = (req, res, next) => {
+    if (req.user) {
+        next()
+    }
+    else {
+        return res.status(401).json({ message: "Unauthorized user!" })
+    }
 
 }
